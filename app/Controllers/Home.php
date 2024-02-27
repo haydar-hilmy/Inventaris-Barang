@@ -2,8 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Home extends BaseController
 {
+
+    protected $userModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+
     public function index()
     {
 
@@ -18,7 +28,15 @@ class Home extends BaseController
         $data = [
             "title" => "App - Login"
         ];
-        return view('index', $data);
+
+        return view('login', $data);
+    }
+
+    public function auth(){
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+        
+        $this->userModel->auth($username, $password);
     }
 
     public function home(): string

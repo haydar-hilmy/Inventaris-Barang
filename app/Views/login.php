@@ -4,7 +4,7 @@
 <?= $this->section('content') ?>
 
 <div class="all-content">
-    <form method="post">
+    <form action="login/auth" method="post">
         <h2>Login</h2>
         <div>
             <input placeholder="Username" autofocus autocomplete="on" type="text" id="username" name="username">
