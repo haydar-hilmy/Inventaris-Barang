@@ -21,6 +21,9 @@
     margin: 0;
 }
 
+.all-content{
+    display: flex;
+}
 
 nav{
     height: 100vh;
