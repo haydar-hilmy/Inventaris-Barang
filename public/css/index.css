@@ -1,0 +1,409 @@
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #c3c3c3;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #858585;
+}
+
+*, body{
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+    color: #1D1D1D;
+    margin: 0;
+}
+
+
+nav{
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 0 13px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px 17px;
+}
+
+
+nav .profile-user{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    cursor: default;
+}
+nav .profile-user .img{
+    width: 40px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+    border-radius: 40px;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 40px 40px;
+}
+nav .profile-user h4{
+    cursor: pointer;
+    font-size: 1rem;
+}
+nav a{
+    text-decoration: none;
+}
+
+nav .nav-button{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+nav .nav-button a{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    text-decoration: none;
+    padding: 12px 18px;
+    width: 178px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #d9d9d9;
+    align-items: center;
+}
+nav .nav-button a img{
+    width: 25px;
+    height: auto;
+    margin: 0;
+}
+nav .nav-button a h4{
+    font-weight: normal;
+    font-size: 1rem;
+    margin: 0;
+    color: inherit;
+}
+
+nav .nav-button a:hover{
+    border: 2px solid #00A9FF;
+    transition-duration: 100ms;
+    background-color: #00A9FF;
+    color: #fff;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.12);
+}
+nav .nav-button a:hover:last-child{
+    border: 2px solid #FD8A8A;
+    transition-duration: 100ms;
+    background-color: #FD8A8A;
+}
+nav .nav-button a:hover img{
+    filter: grayscale(100%) invert(100%) brightness(100);
+    transition-duration: 100ms;
+}
+nav .nav-button .active-btn{
+    color: #fff;
+    background-color: #00A9FF;
+    border: 2px solid #00A9FF;
+}
+nav .nav-button .active-btn img{
+    filter: grayscale(100%) invert(100%) brightness(100);
+}
+
+/* END NAV */
+
+
+
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 24px;
+}
+.btn_show{
+    font-size: 1.3rem;
+    color: inherit;
+    margin: 12px 0;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+.btn_show:hover{
+    transition-duration: 100ms;
+    background-color: #f1f1f1;
+}
+.title-content{
+    font-size: 2rem;
+    font-weight: 700;
+    align-self: flex-start;
+    margin: 12px 0 0 0;
+}
+
+.table-pack{
+    display: flex;
+    flex-direction: column;
+}
+
+.option-table{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.option-table .left button{
+    padding: 8px 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    width: 90px;
+    border: 0;
+    transition-duration: 250ms;
+    cursor: pointer;
+    margin: 20px 0;
+}
+.option-table .left button:hover{
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+    transition-duration: 100ms;
+}
+
+.option-table .right form{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.option-table .right form input{
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    border: 2px solid #d9d9d9;
+}
+.option-table .right form button img{
+    width: 1.1rem;
+}
+.option-table .right form button{
+    background-color: #fff;
+    border: 2px solid #d9d9d9;
+    border-radius: 10px;
+    height: auto;
+    padding: 8px;
+    cursor: pointer;
+}
+.option-table .right form button:hover{
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #d9d9d9;
+    transition-duration: 200ms;
+}
+.option-table .right form input:hover{
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition-duration: 200ms;
+}
+
+/* TABLE */
+table {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+table thead{
+    border-radius: 10px;
+}
+table thead tr th:nth-child(1){
+    border-radius: 10px 0 0 0;
+    /* border-left: 2px solid rgba(0, 0, 0, 0.08); */
+}
+table thead tr th:last-child{
+    border-radius: 0 10px 0 0;
+    /* border-right: 2px solid rgba(0, 0, 0, 0.08); */
+}
+table thead tr th{
+    background-color: #dce0ff;
+    padding: 10px 10px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+    /* border-bottom: 2px solid rgba(0, 0, 0, 0.08); */
+    /* border-top: 2px solid rgba(0, 0, 0, 0.08); */
+}
+table tbody tr td{
+    padding: 10px 8px;
+    font-size: 0.9rem;
+    max-width: 200px;
+    word-break: break-all;
+}
+table tbody tr:nth-child(even){
+    background-color: #f8f8f8;
+}
+table tbody tr:hover{
+    transition-duration: 150ms;
+    background-color: #f0f0f0;
+}
+.center-td{
+    text-align: center;
+}
+.act-btn{
+    width: 1.2rem;
+    cursor: pointer;
+}
+
+
+
+
+
+/* MODAL ALERT */
+.modal-alert{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+.box-modal-alert{
+    background-color: #fefefe;
+    margin: 30px auto;
+    padding: 28px;
+    border: 1px solid #d9d9d9;
+    width: 20%;
+    box-shadow: 0 3px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+}
+.box-modal-alert .btn-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+}
+.box-green, .box-warn{
+    padding: 8px 14px;
+    font-size: inherit;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.box-green:hover, .box-warn:hover{
+    filter: brightness(1.2);
+    transition-duration: 200ms;
+}
+.box-green{
+    background-color: #9ADE7B;
+}
+.box-warn{
+    background-color: #FF8F8F;
+}
+
+/* MODAL FORM */
+.modal-form{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 56px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    overflow-y: scroll;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.box-modal-form{
+    background-color: #fefefe;
+    margin: auto auto 56px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+.box-modal-form h3{
+    font-size: 1.4rem;
+    margin: 8px 0 24px 0;
+}
+.box-modal-form div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 0 24px 0;
+}
+.box-modal-form div input, .box-modal-form div textarea, .box-modal-form div select{
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+    outline: none;
+    transition-duration: 200ms;
+    font-size: 1rem;
+}
+.box-modal-form div label{
+    align-self: flex-start;
+}
+.box-modal-form div textarea{
+    max-width: 366px;
+    min-width: 366px;
+    max-height: 80px;
+    min-height: 30px;
+}
+.box-modal-form div input::placeholder, .box-modal-form div textarea::placeholder{
+    color: rgba(0, 0, 0, 0.6);
+}
+.box-modal-form div input:focus, .box-modal-form div textarea:focus{
+    outline: 1px solid #858585;
+    transition-duration: 200ms;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.not_allow{
+    background-color: #d9d9d9;
+}
+
+.box-modal-form div textarea:focus::placeholder, .box-modal-form div input:focus::placeholder{
+    transform: translateY(-20px);
+    letter-spacing: 1px;
+    opacity: 0;
+    transition-duration: 300ms;
+}
+
+.box-modal-form div button{
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    font-size: 1rem;
+    background-color: #7071E8;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition-duration: 200ms;
+    color: #fff;
+    cursor: pointer;
+}
+.box-modal-form div button:hover{
+    transition-duration: 200ms;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.24);
+}
+.box-modal-form div button:focus{
+    transition-duration: 200ms;
+    outline: 1px solid #858585;
+}
+
+.close-icon{
+    color: #aaaaaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
