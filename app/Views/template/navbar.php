@@ -8,19 +8,19 @@
     </a>
 
     <div class="nav-button">
-        <a class="active-btn" href="/dashboard">
+        <a class="<?= $title == "Dashboard"? 'active-btn' : "" ?>" href="/dashboard">
             <img alt="icon" src="assets/icon/layers-minimalistic-svgrepo-com.svg">
             <h4>Dashboard</h4>
         </a>
-        <a href="barang.php">
+        <a class="<?= $title == "Barang"? 'active-btn' : "" ?>" href="/barang">
             <img alt="icon" src="assets/icon/archive-svgrepo-com.svg">
             <h4>Stock Barang</h4>
         </a>
-        <a href="barang_masuk.php">
+        <a class="<?= $title == "Barang Masuk"? 'active-btn' : "" ?>" href="/barang_masuk">
             <img alt="icon" src="assets/icon/archive-down-svgrepo-com.svg">
             <h4>Barang Masuk</h4>
         </a>
-        <a href="barang_keluar.php">
+        <a class="<?= $title == "Barang Keluar"? 'active-btn' : "" ?>" href="/barang_keluar">
             <img alt="icon" src="assets/icon/archive-up-svgrepo-com.svg">
             <h4>Barang Keluar</h4>
         </a>

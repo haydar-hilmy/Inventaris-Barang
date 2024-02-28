@@ -71,6 +71,9 @@ class Filters extends BaseConfig
         'isLoggedIn' => [
             'before' => [
                 'dashboard',
+                'barang',
+                'barang_masuk',
+                'barang_keluar'
             ]
         ]
     ];

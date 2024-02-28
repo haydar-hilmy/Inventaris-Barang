@@ -62,5 +62,6 @@
 </div>
 <!-- END CONTENT -->
 
+<script src="js/dashboard.js"></script>
 
 <?= $this->endSection() ?>

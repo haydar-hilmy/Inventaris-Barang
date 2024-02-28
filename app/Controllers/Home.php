@@ -29,6 +29,10 @@ class Home extends BaseController
             "title" => "App - Login"
         ];
 
+        if (session('login')) {
+            return redirect()->to(site_url('/dashboard'));
+        }
+
         return view('login', $data);
     }
 
@@ -36,7 +40,14 @@ class Home extends BaseController
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
         
-        $this->userModel->auth($username, $password);
+        $dataUser = $this->userModel->auth($username, $password);
+
+        if(!$dataUser){
+            return redirect()->to('/login')->withInput()->with("error", "Username atau Password salah!");
+        }
+
+        session()->set('login', true);
+        return redirect()->to('/dashboard');
     }
 
     public function home(): string

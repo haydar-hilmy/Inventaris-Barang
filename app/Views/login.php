@@ -17,9 +17,9 @@
         </div>
 
         <div>
-            <p><?php if (isset($salah_password)) {
-                    echo "Username atau Password tidak ditemukan";
-                } ?></p>
+            <?php if (session()->getFlashdata('error')) : ?>
+                <p><?= session()->getFlashdata('error') ?></p>
+            <?php endif; ?>
         </div>
 
         <div>

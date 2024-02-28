@@ -18,9 +18,18 @@ class UserModel extends Model
     }
 
     public function auth($username = false, $password = false){
-        if(!$username || $password){
+
+        if(!$username || !$password){
             return false;
         }
+
+        $usr = $this->where('username', $username)->first();
+
+        if(!$usr){
+            return false;
+        }
+
+        return $usr;
     }
 
 
