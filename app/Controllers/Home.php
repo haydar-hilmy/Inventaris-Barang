@@ -57,4 +57,11 @@ class Home extends BaseController
         ];
         return view('dashboard', $data);
     }
+
+
+    public function logout(){
+        session()->destroy();
+
+        return redirect()->to('/login');
+    }
 }
