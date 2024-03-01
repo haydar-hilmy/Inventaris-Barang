@@ -3,15 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\BarangModel;
 
 class BarangController extends BaseController
 {
 
     protected $userModel;
+    protected $barangModel;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->barangModel = new BarangModel();
     }
 
     public function index()
@@ -21,8 +24,11 @@ class BarangController extends BaseController
             return redirect()->to(site_url('/login'));
         }
 
+        $getBarang = $this->barangModel;
+
         $data = [
-            'title' => "Barang"
+            'title' => "Barang",
+            'barang' => $getBarang->getBarang()
         ];
 
         return view('barang', $data);

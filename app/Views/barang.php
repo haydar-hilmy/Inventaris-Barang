@@ -79,27 +79,29 @@
 
             <tbody>
 
-                    <tr>
-                        <td class="center-td" colspan="10">Data Tidak Ditemukan</td>
-                    </tr>
+                <!-- <tr>
+                    <td class="center-td" colspan="10">Data Tidak Ditemukan</td>
+                </tr> -->
 
+                <?php if(!$barang){ ?>
+                <tr>
+                    <td class="center-td" colspan="10">Belum Ada Data</td>
+                </tr>
+                <?php } else ?>
+                <?php foreach ($barang as $b) : $i = 1; ?>
                     <tr>
-                        <td class="center-td" colspan="10">Belum Ada Data</td>
-                    </tr>
-
-                    <tr>
-                        <td class="center-td">1</td>
-                        <td class="id_barang">88</td>
-                        <td>nama barang</td>
-                        <td>mangtap</td>
-                        <td>2</td>
-                        <!-- <td><?php // echo "Rp." . number_format($key["harga"], '0', ',', '.'); ?></td> -->
-                        <td>rp 10k</td>
-                        <td>rp 10k</td>
-                        <td>admin</td>
-                        <td>2 april 2004</td>
+                        <td class="center-td"><?= $i++ ?></td>
+                        <td class="id_barang"><?= $b["id"] ?></td>
+                        <td><?= $b["nama_barang"] ?></td>
+                        <td><?= $b["deskripsi"] ?></td>
+                        <td><?= $b["stok"] ?></td>
+                        <td><?= "Rp." . number_format($b["harga"], '0', ',', '.') ?></td>
+                        <td><?= "Rp." . number_format($b["harga"], '0', ',', '.') ?></td>
+                        <td><?= $b["modified"] ?></td>
+                        <td><?= $b["created_at"] ?></td>
                         <td><img class="act-btn edit-btn" src="assets/icon/edit-3-svgrepo-com.svg"> | <img onclick="delete_data('idbarang', 'namabarang')" class="act-btn" src="assets/icon/delete-2-svgrepo-com.svg"></td>
                     </tr>
+                <?php endforeach ?>
 
             </tbody>
 

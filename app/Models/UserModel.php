@@ -29,6 +29,10 @@ class UserModel extends Model
             return false;
         }
 
+        if($usr["password"] !== $password){
+            return false;
+        }   
+
         return $usr;
     }
 
