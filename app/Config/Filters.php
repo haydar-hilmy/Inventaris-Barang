@@ -72,6 +72,7 @@ class Filters extends BaseConfig
             'before' => [
                 'dashboard',
                 'barang',
+                'barang/*',
                 'barang_masuk',
                 'barang_keluar'
             ]

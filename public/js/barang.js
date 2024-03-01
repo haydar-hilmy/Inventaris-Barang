@@ -54,7 +54,7 @@ $(document).ready(function () {
         edit_btn[i].addEventListener('click', function () {
             // AJAX
             $.ajax({
-                url: `./php/get_data.php?id_barang=${id_barang}`,
+                url: `barang/get_data/id_barang/${id_barang}`,
                 method: "GET",
                 success: function (data) {
                     box_modal_edit_form.html(data);

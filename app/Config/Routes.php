@@ -11,9 +11,13 @@ $routes->get('/login', 'Home::login');
 $routes->post('/login/auth', 'Home::auth');
 
 $routes->get('/dashboard', 'Home::home');
+
 $routes->get('/barang', 'BarangController');
+$routes->post('/barang/addbarang', 'BarangController::addBarang');
+$routes->get('barang/get_data/id_barang/(:num)', 'BarangController::edit/$1');
+
+
 $routes->get('/barang_masuk', 'BarangController::barangMasuk');
 $routes->get('/barang_keluar', 'BarangController::barangKeluar');
-
 
 $routes->get('/logout', 'Home::logout');

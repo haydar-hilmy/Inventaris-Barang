@@ -88,17 +88,17 @@
                     <td class="center-td" colspan="10">Belum Ada Data</td>
                 </tr>
                 <?php } else ?>
-                <?php foreach ($barang as $b) : $i = 1; ?>
+                <?php  $i = 1; foreach ($barang as $key => $b) : ?>
                     <tr>
                         <td class="center-td"><?= $i++ ?></td>
-                        <td class="id_barang"><?= $b["id"] ?></td>
-                        <td><?= $b["nama_barang"] ?></td>
-                        <td><?= $b["deskripsi"] ?></td>
-                        <td><?= $b["stok"] ?></td>
-                        <td><?= "Rp." . number_format($b["harga"], '0', ',', '.') ?></td>
-                        <td><?= "Rp." . number_format($b["harga"], '0', ',', '.') ?></td>
-                        <td><?= $b["modified"] ?></td>
-                        <td><?= $b["created_at"] ?></td>
+                        <td class="id_barang"><?= $b->id ?></td>
+                        <td><?= $b->nama_barang ?></td>
+                        <td><?= $b->deskripsi ?></td>
+                        <td><?= $b->stok ?></td>
+                        <td><?= "Rp." . number_format($b->harga, '0', ',', '.') ?></td>
+                        <td><?= "Rp." . number_format($b->total_harga, '0', ',', '.') ?></td>
+                        <td><?= $b->modified ?></td>
+                        <td><?= $b->created_at ?></td>
                         <td><img class="act-btn edit-btn" src="assets/icon/edit-3-svgrepo-com.svg"> | <img onclick="delete_data('idbarang', 'namabarang')" class="act-btn" src="assets/icon/delete-2-svgrepo-com.svg"></td>
                     </tr>
                 <?php endforeach ?>
@@ -116,11 +116,9 @@
 
 <!-- MODAL ADD FORM -->
 <div class="modal-form" id="box-modal-form">
-    <form method="post" class="box-modal-form">
+    <form method="post" action="barang/addbarang" class="box-modal-form">
         <span class="close-icon" id="close-icon-add">&times;</span>
         <h3>Tambah Barang</h3>
-
-        <input type="hidden" name="admin" value="username">
 
         <div>
             <label for="nama_barang">Nama Barang</label>
@@ -138,7 +136,7 @@
         </div>
 
         <div>
-            <button name="tambah" type="submit">Tambah</button>
+            <button type="submit">Tambah</button>
         </div>
     </form>
 </div>

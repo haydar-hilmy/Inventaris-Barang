@@ -46,7 +46,7 @@ class Home extends BaseController
             return redirect()->to('/login')->withInput()->with("error", "Username atau Password salah!");
         }
 
-        session()->set('login', true);
+        session()->set('login', $username);
         return redirect()->to('/dashboard');
     }
 

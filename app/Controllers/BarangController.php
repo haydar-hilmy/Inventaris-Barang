@@ -34,6 +34,26 @@ class BarangController extends BaseController
         return view('barang', $data);
     }
 
+    public function addbarang(){
+
+        $data = [
+            "nama_barang" => $this->request->getVar('nama_barang'),
+            "deskripsi" => $this->request->getVar('deskripsi'),
+            "harga" => $this->request->getVar('harga_barang'),
+            "modified" => session('login')
+        ];
+
+        $this->barangModel->save($data);
+
+        return redirect()->to('/barang');
+    }
+
+    public function edit($id = false){
+        dd($id);
+    }
+
+    // PAKAI AJAX UNTUK MENAMPILKAN FORM EDIT (edit_data.php)
+
     public function barangMasuk(){
 
 
