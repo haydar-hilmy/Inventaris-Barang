@@ -47,12 +47,15 @@ class BarangController extends BaseController
 
         return redirect()->to('/barang');
     }
-
+    
     public function edit($id = false){
-        dd($id);
-    }
 
-    // PAKAI AJAX UNTUK MENAMPILKAN FORM EDIT (edit_data.php)
+        $data = [
+            "barang" => $this->barangModel->find($id)
+        ];
+        
+        return view('template/editData', $data);
+    }
 
     public function barangMasuk(){
 
