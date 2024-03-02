@@ -4,17 +4,23 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\BarangModel;
+use App\Models\BarangMasukModel;
+use App\Models\BarangKeluarModel;
 
 class BarangController extends BaseController
 {
 
     protected $userModel;
     protected $barangModel;
+    protected $barangMasukModel;
+    protected $barangKeluarModel;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
         $this->barangModel = new BarangModel();
+        $this->barangMasukModel = new BarangMasukModel();
+        $this->barangKeluarModel = new BarangKeluarModel();
     }
 
     public function index()
@@ -57,11 +63,36 @@ class BarangController extends BaseController
         return view('template/editData', $data);
     }
 
+    public function update($id){
+        $data = [
+            "id" => $this->request->getVar("id"),
+            "nama_barang" => $this->request->getVar("nama_barang"),
+            "deskripsi" => $this->request->getVar("deskripsi"),
+            "harga" => $this->request->getVar("harga_barang")
+        ];
+
+        $this->barangModel->save($data);
+
+        return redirect()->to('/barang');
+    }
+
+    public function delete($id){
+        $namaImg = $this->barangModel->find($id);
+        
+        $this->barangModel->delete($id);
+        $data = [
+            "barang" => $this->barangModel->getBarang()
+        ];
+
+        return view('template/tabel_barang', $data);
+    }
+
     public function barangMasuk(){
 
 
         $data = [
-            'title' => 'Barang Masuk'
+            'title' => 'Barang Masuk',
+            'barangMasuk' => $this->barangMasukModel->getBarangMasuk()
         ];
 
         return view('barang_masuk', $data);

@@ -1,7 +1,11 @@
-<form method="post" class="box-modal-form">
+<form method="post" action="barang/update/<?= $barang["id"] ?>" class="box-modal-form">
+    <?= csrf_field(); ?>
+
     <input type="hidden" name="id_barang" value="">
     <span class="close-icon" id="close-icon-edit">&times;</span>
     <h3>Edit Data Barang</h3>
+
+    <input type="hidden" name="id" value="<?= $barang["id"] ?>">
 
     <div>
         <label for="nama_barang">Nama Barang</label>

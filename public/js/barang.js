@@ -74,8 +74,18 @@ function delete_data(id, nama_barang) {
     let yes_btn = $("#yes-btn");
     let box_modal_alert = $("#box-modal-alert");
     $('#txt-box-modal-alert').text(`Hapus Barang ${nama_barang}?`);
+    let tbody_barang = $("#tbody-barang");
     box_modal_alert.slideDown(200);
     yes_btn.on('click', function () {
-        window.location.href = 'php/delete_barang.php?id_barang=' + id;
+        $.ajax({
+            url: `barang/del/${id}`,
+            method: "POST",
+            success: function (data) {
+                tbody_barang.html(data);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error: " + error);
+            }
+        });
     });
 }

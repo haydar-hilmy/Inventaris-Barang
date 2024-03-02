@@ -72,18 +72,19 @@
             </thead>
 
             <tbody>
+                <tr>
+                    <td class="center-td" colspan="10">Data Tidak Ditemukan</td>
+                </tr>
+                <tr>
+                    <td class="center-td" colspan="10">Belum Ada Data</td>
+                </tr>
+                <?php $i = 1;
+                foreach ($barangMasuk as $key => $b) : ?>
                     <tr>
-                        <td class="center-td" colspan="10">Data Tidak Ditemukan</td>
-                    </tr>
-                    <tr>
-                        <td class="center-td" colspan="10">Belum Ada Data</td>
-                    </tr>
-
-                    <tr>
-                        <td class="center-td">1</td>
-                        <td class="id_transaksi">id transsaksi</td>
-                        <td class="id_barang">id barang</td>
-                        <td>nama barang</td>
+                        <td class="center-td"><?= $i++ ?></td>
+                        <td class="id_transaksi"><?= $b["id"] ?></td>
+                        <td class="id_barang"><?= $b["id_barang"] ?></td>
+                        <td><?= $b["nama_barang"] ?></td>
                         <td>24</td>
                         <td>292929</td>
                         <td>899999</td>
@@ -92,6 +93,7 @@
                         <td>9 april 2004</td>
                         <!-- <td class="center-td"><img class="act-btn delete-btn" src="assets/icon/delete-2-svgrepo-com.svg"></td> -->
                     </tr>
+                <?php endforeach ?>
             </tbody>
 
         </table>
@@ -115,7 +117,7 @@
             <label for="nama">Nama Barang</label>
             <select name="id_barang" id="nama" required>
                 <option value="" disabled selected>Select Barang</option>
-                    <option value="id namabarang"></option>
+                <option value="id namabarang"></option>
             </select>
         </div>
 

@@ -9,6 +9,7 @@ class BarangModel extends Model
 {
     protected $table            = 'barang';
     protected $primaryKey       = 'id';
+    protected $useTimestamps = true;
     protected $allowedFields    = [
         'nama_barang', 'deskripsi', 'harga', 'stok', 'modified', 'photo'
     ];
