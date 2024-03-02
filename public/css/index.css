@@ -372,7 +372,7 @@ table tbody tr:hover{
 }
 
 .not_allow{
-    background-color: #d9d9d9;
+    background-color: #bfbfbf !important;
 }
 
 .box-modal-form div textarea:focus::placeholder, .box-modal-form div input:focus::placeholder{

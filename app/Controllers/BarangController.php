@@ -42,16 +42,20 @@ class BarangController extends BaseController
 
     public function addbarang(){
 
-        $data = [
+        $dataAdd = [
             "nama_barang" => $this->request->getVar('nama_barang'),
             "deskripsi" => $this->request->getVar('deskripsi'),
             "harga" => $this->request->getVar('harga_barang'),
             "modified" => session('login')
         ];
 
-        $this->barangModel->save($data);
+        $this->barangModel->save($dataAdd);
 
-        return redirect()->to('/barang');
+        $data = [
+            "barang" => $this->barangModel->getBarang()
+        ];
+
+        return view('template/tabel_barang', $data);
     }
     
     public function edit($id = false){
@@ -64,16 +68,20 @@ class BarangController extends BaseController
     }
 
     public function update($id){
-        $data = [
+        $dataAdd = [
             "id" => $this->request->getVar("id"),
             "nama_barang" => $this->request->getVar("nama_barang"),
             "deskripsi" => $this->request->getVar("deskripsi"),
             "harga" => $this->request->getVar("harga_barang")
         ];
 
-        $this->barangModel->save($data);
+        $this->barangModel->save($dataAdd);
 
-        return redirect()->to('/barang');
+        $data = [
+            "barang" => $this->barangModel->getBarang()
+        ];
+
+        return view('template/tabel_barang', $data);
     }
 
     public function delete($id){

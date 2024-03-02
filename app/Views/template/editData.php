@@ -1,11 +1,8 @@
-<form method="post" action="barang/update/<?= $barang["id"] ?>" class="box-modal-form">
     <?= csrf_field(); ?>
-
-    <input type="hidden" name="id_barang" value="">
     <span class="close-icon" id="close-icon-edit">&times;</span>
     <h3>Edit Data Barang</h3>
 
-    <input type="hidden" name="id" value="<?= $barang["id"] ?>">
+    <input type="hidden" name="id" id="id_barang" value="<?= $barang["id"] ?>">
 
     <div>
         <label for="nama_barang">Nama Barang</label>
@@ -23,13 +20,12 @@
     </div>
 
     <div>
-        <button id="test" type="submit">Edit</button>
+        <button id="btn_edit" type="submit">Edit</button>
     </div>
-</form>
 
 
-<script>
-    $("#close-icon-edit").on('click', function() {
-        $("#box-modal-edit-form").hide(200);
-    });
-</script>
+    <script>
+        $("#close-icon-edit").on('click', function() {
+            $("#box-modal-edit-form").hide(200);
+        });
+    </script>

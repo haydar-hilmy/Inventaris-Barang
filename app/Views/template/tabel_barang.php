@@ -15,6 +15,7 @@ foreach ($barang as $key => $b) : ?>
         <td><?= "Rp." . number_format($b->total_harga, '0', ',', '.') ?></td>
         <td><?= $b->modified ?></td>
         <td><?= $b->created_at ?></td>
-        <td><img class="act-btn edit-btn" src="assets/icon/edit-3-svgrepo-com.svg"> | <img onclick="delete_data('<?= $b->id ?>', '<?= $b->nama_barang ?>')" class="act-btn" src="assets/icon/delete-2-svgrepo-com.svg"></td>
+        <td><img class="act-btn edit-btn" data-id="<?= $b->id ?>" src="assets/icon/edit-3-svgrepo-com.svg"> | <img data-id="<?= $b->id ?>" data-nama="<?= $b->nama_barang ?>" class="act-btn delete-data" src="assets/icon/delete-2-svgrepo-com.svg"></td>
     </tr>
 <?php endforeach ?>
+<script src="js/barang.js"></script>
