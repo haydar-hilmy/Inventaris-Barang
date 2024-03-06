@@ -65,33 +65,6 @@ $(document).ready(function () {
         });
     }
 
-    $('#form_add').submit(function (e) {
-
-        // loading button
-        $("#btn_tambah").addClass('not_allow');
-        $("#btn_tambah").html('Loading...');
-        $("#btn_tambah").prop("disabled", true);
-
-        e.preventDefault();
-        var formData = $(this).serialize();
-        $.ajax({
-            url: 'barang/addbarang',
-            type: 'POST',
-            data: formData,
-            success: function (data) {
-                box_modal_form.hide(150);
-                $("#tbody-barang").html(data);
-                $('#form_add')[0].reset();
-                $('#btn_tambah').removeClass('not_allow');
-                $("#btn_tambah").html('Tambah');
-                $("#btn_tambah").prop("disabled", false);
-            },
-            error: function (xhr, status, error) {
-                console.error(error);
-            }
-        });
-    });
-
     $('#form_edit').submit(function (e) {
 
         // loading button
@@ -142,3 +115,34 @@ function delete_data(id, nama_barang) {
         });
     });
 }
+
+document.getElementById("form_add").addEventListener("submit", function(e){
+
+    let btn_tambah = document.getElementById("btn_tambah");
+
+    btn_tambah.innerHTML = "Loading...";
+    btn_tambah.classList.add("not_allow");
+    btn_tambah.disabled = true;
+
+    e.preventDefault();
+    var formData = new FormData(this);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'barang/addbarang', true);
+    xhr.onload = function(){
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            document.getElementById("box-modal-form").style.display = 'none';
+            document.getElementById('tbody-barang').innerHTML = response;
+            document.getElementById('form_add').reset();
+            document.getElementById("btn_tambah").classList.remove('not_allow');
+            document.getElementById("btn_tambah").innerHTML = 'Tambah';
+            document.getElementById("btn_tambah").disabled = false;
+        } else {
+            console.log("Error sending data");
+        }
+    }
+    xhr.onerror = function() {
+        console.error(xhr.statusText);
+    };
+    xhr.send(formData);
+});

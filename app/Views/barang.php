@@ -118,6 +118,7 @@
 <!-- MODAL ADD FORM -->
 <div class="modal-form" id="box-modal-form">
     <form id="form_add" method="post" class="box-modal-form">
+        <?= csrf_field() ?>
         <span class="close-icon" id="close-icon-add">&times;</span>
         <h3>Tambah Barang</h3>
 
