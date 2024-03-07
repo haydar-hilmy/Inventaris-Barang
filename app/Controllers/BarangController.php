@@ -98,7 +98,7 @@ class BarangController extends BaseController
     public function getJumlahBarang($id){
         $data["jumlah"] = $this->barangModel->getJumlahBarang($id);
 
-        return view('template/inputJumlahBarang', $data);
+        return view('template/ajax/inputJumlahBarang', $data);
     }
 
     public function barangMasuk(){
