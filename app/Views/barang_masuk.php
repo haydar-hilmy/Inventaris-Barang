@@ -1,34 +1,3 @@
-<?php
-// session_start();
-
-// if (!isset($_SESSION['login'])) {
-//     header("Location: index.php");
-// }
-
-// include 'php/function.php';
-
-// $get_user = $_SESSION['login'];
-// $query_user = mysqli_query($con, "SELECT * FROM user WHERE username = '$get_user'");
-// $array_user = mysqli_fetch_array($query_user);
-
-// $query_barang_masuk = mysqli_query($con, "SELECT stock.id AS 'id_barang', barang_masuk.id AS 'id_transaksi', stock.nama_barang, barang_masuk.qty, barang_masuk.harga, barang_masuk.pemasok, barang_masuk.tanggal, barang_masuk.modified, barang_masuk.total_harga FROM stock JOIN barang_masuk ON stock.id = barang_masuk.id_barang ORDER BY barang_masuk.id ASC");
-// $query_barang = mysqli_query($con, "SELECT * FROM stock");
-
-// if (isset($_POST['tambah'])) {
-//     if (TambahBarangMasuk($_POST) > 0) {
-//         echo "<script>alert('Berhasil menambah transaksi masuk!');window.location = 'barang_masuk.php';</script>";
-//     } else {
-//         echo "<script>alert('Oops! gagal menambah transaksi :(');window.location = 'barang_masuk.php';</script>";
-//     }
-// }
-
-// if (isset($_GET['cari'])) {
-//     $pencarian = $_GET['cari'];
-//     $query_barang_masuk = mysqli_query($con, "SELECT stock.id AS 'id_barang', barang_masuk.id AS 'id_transaksi', stock.nama_barang, barang_masuk.qty, barang_masuk.harga, barang_masuk.pemasok, barang_masuk.tanggal, barang_masuk.modified, barang_masuk.total_harga FROM stock JOIN barang_masuk ON stock.id = barang_masuk.id_barang WHERE barang_masuk.tanggal LIKE '%$pencarian%' ORDER BY barang_masuk.tanggal ASC");
-// }
-
-?>
-
 <?= $this->extend('template/main') ?>
 
 <?= $this->section('content') ?>
@@ -115,9 +84,11 @@
 
         <div>
             <label for="nama">Nama Barang</label>
-            <select name="id_barang" id="nama" required>
+            <select name="id_barang" id="select_barang" required>
                 <option value="" disabled selected>Select Barang</option>
-                <option value="id namabarang"></option>
+                <?php foreach($barang as $key => $b): ?>
+                <option value="<?= $b->id ?>"><?= $b->nama_barang ?></option>
+                <?php endforeach ?> 
             </select>
         </div>
 
@@ -126,9 +97,9 @@
             <input placeholder="Tanggal Masuk" type="date" name="tanggal" id="tanggal" required>
         </div>
 
-        <div>
+        <div id="max_jumlah_barang">
             <label for="jumlah">Jumlah</label>
-            <input placeholder="Jumlah Barang" min="1" type="number" name="jumlah" id="jumlah" required>
+            <input placeholder="Jumlah Barang" class="not_allow" min="1" disabled type="number" name="jumlah" id="jumlah" required>
         </div>
 
         <div>

@@ -25,4 +25,16 @@ class BarangModel extends Model
         }
         return $this->where('id', $id)->first();
     }
+
+    public function getJumlahBarang($id = false){
+        if ($id === false) {
+            return "id must be included in the parameter";
+        } else {
+            $builder = $this->db->table('barang');
+            $builder->select('stok AS total_barang');
+            $builder->where('id', $id);
+            $query = $builder->get();
+            return $query->getRow()->total_barang;
+        }
+    }
 }
