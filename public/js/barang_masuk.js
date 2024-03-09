@@ -60,27 +60,47 @@ $(document).ready(function () {
     });
     btn_add.click(function () {
         box_modal_form.show(200);
+        // OTOMATIS ISI TANGGAL PADA INPUT ADD
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('tanggal').value = today;
     });
 
 
 });
 
 
-document.getElementById('select_barang').addEventListener('input', function (e) {
-    var id_barang = document.getElementById('select_barang').value;
 
+
+
+
+
+document.getElementById("form_add_barangMasuk").addEventListener("submit", function(e){
+
+    let btn_tambah = document.getElementById("btn_tambah");
+
+    btn_tambah.innerHTML = "Loading...";
+    btn_tambah.classList.add("not_allow");
+    btn_tambah.disabled = true;
+
+    e.preventDefault();
+    var formData = new FormData(this);
     var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
+    xhr.open('POST', 'barang/masuk', true);
+    xhr.onload = function(){
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
-            document.getElementById('max_jumlah_barang').innerHTML = response;
+            document.getElementById("box-modal-form").style.display = 'none';
+            document.getElementById('tbody-barang').innerHTML = response;
+            document.getElementById('form_add_barangMasuk').reset();
+            document.getElementById("btn_tambah").classList.remove('not_allow');
+            document.getElementById("btn_tambah").innerHTML = 'Tambah';
+            document.getElementById("btn_tambah").disabled = false;
         } else {
-            console.log("Error get data");
+            console.log("Error sending data");
         }
     }
-    xhr.open('POST', `/barang/getJumlahBarang/${id_barang}`, true);
-    xhr.onerror = function () {
+    xhr.onerror = function() {
         console.error(xhr.statusText);
     };
-    xhr.send();
+    xhr.send(formData);
 });

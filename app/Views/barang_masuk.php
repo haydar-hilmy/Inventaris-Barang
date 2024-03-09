@@ -40,26 +40,27 @@
                 </tr>
             </thead>
 
-            <tbody>
-                <tr>
+            <tbody id="tbody-barang">
+                <!-- <tr>
                     <td class="center-td" colspan="10">Data Tidak Ditemukan</td>
-                </tr>
-                <tr>
-                    <td class="center-td" colspan="10">Belum Ada Data</td>
-                </tr>
-                <?php $i = 1;
+                </tr> -->
+                <?php if (!$barangMasuk) { ?>
+                    <tr>
+                        <td class="center-td" colspan="10">Belum Ada Data</td>
+                    </tr>
+                <?php } else $i = 1;
                 foreach ($barangMasuk as $key => $b) : ?>
                     <tr>
                         <td class="center-td"><?= $i++ ?></td>
-                        <td class="id_transaksi"><?= $b["id"] ?></td>
-                        <td class="id_barang"><?= $b["id_barang"] ?></td>
-                        <td><?= $b["nama_barang"] ?></td>
-                        <td>24</td>
-                        <td>292929</td>
-                        <td>899999</td>
-                        <td>pt pasok</td>
-                        <td>admin</td>
-                        <td>9 april 2004</td>
+                        <td class="id_transaksi"><?= $b->id_transaksi ?></td>
+                        <td class="id_barang"><?= $b->id_barang ?></td>
+                        <td><?= $b->nama_barang ?></td>
+                        <td><?= $b->qty ?></td>
+                        <td><?= "Rp." . number_format($b->harga, '0', ',', '.') ?></td>
+                        <td><?= "Rp." . number_format($b->harga*$b->qty, '0', ',', '.') ?></td>
+                        <td><?= $b->pemasok ?></td>
+                        <td><?= $b->modified ?></td>
+                        <td><?= $b->created_at ?></td>
                         <!-- <td class="center-td"><img class="act-btn delete-btn" src="assets/icon/delete-2-svgrepo-com.svg"></td> -->
                     </tr>
                 <?php endforeach ?>
@@ -76,7 +77,7 @@
 
 <!-- MODAL ADD FORM -->
 <div class="modal-form" id="box-modal-form">
-    <form method="post" class="box-modal-form">
+    <form method="post" id="form_add_barangMasuk" class="box-modal-form">
         <span class="close-icon" id="close-icon-add">&times;</span>
         <h3>Barang Masuk</h3>
 
@@ -86,9 +87,9 @@
             <label for="nama">Nama Barang</label>
             <select name="id_barang" id="select_barang" required>
                 <option value="" disabled selected>Select Barang</option>
-                <?php foreach($barang as $key => $b): ?>
-                <option value="<?= $b->id ?>"><?= $b->nama_barang ?></option>
-                <?php endforeach ?> 
+                <?php foreach ($barang as $key => $b) : ?>
+                    <option value="<?= $b->id ?>"><?= $b->nama_barang ?></option>
+                <?php endforeach ?>
             </select>
         </div>
 
@@ -99,7 +100,7 @@
 
         <div id="max_jumlah_barang">
             <label for="jumlah">Jumlah</label>
-            <input placeholder="Jumlah Barang" class="not_allow" min="1" disabled type="number" name="jumlah" id="jumlah" required>
+            <input placeholder="Jumlah Barang" min="1" type="number" name="jumlah" id="jumlah" required>
         </div>
 
         <div>
@@ -108,7 +109,7 @@
         </div>
 
         <div>
-            <button name="tambah" type="submit">Tambah</button>
+            <button name="tambah" id="btn_tambah" type="submit">Tambah</button>
         </div>
     </form>
 </div>
@@ -128,3 +129,6 @@
 <script src="js/barang_masuk.js"></script>
 
 <?= $this->endSection() ?>
+
+<!-- MENAMBAHKAN VALUE YANG DI BAGIAN FILE template/tabel_barang disamakan dengan tabel yang ada di tabel barang_masuk -->
+<!-- PERBAIKI TANGGAL, karena ketika diinput di database tidak muncul tanggal di kolom created at -->

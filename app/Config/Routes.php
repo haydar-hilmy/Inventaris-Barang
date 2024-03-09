@@ -24,4 +24,6 @@ $routes->post('/barang/getJumlahBarang/(:num)', 'BarangController::getJumlahBara
 $routes->get('/barang_masuk', 'BarangController::barangMasuk');
 $routes->get('/barang_keluar', 'BarangController::barangKeluar');
 
+$routes->post('/barang/masuk', 'BarangController::addBarangMasuk');
+
 $routes->get('/logout', 'Home::logout');

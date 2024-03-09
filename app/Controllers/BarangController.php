@@ -113,6 +113,23 @@ class BarangController extends BaseController
         return view('barang_masuk', $data);
     }
 
+    public function addBarangMasuk(){
+        $dataAdd = [
+            "id_barang" => $this->request->getVar('id_barang'),
+            "qty" => $this->request->getVar('jumlah'),
+            "pemasok" => $this->request->getVar('pemasok'),
+            "modified" => session('login')
+        ];
+
+        $this->barangMasukModel->save($dataAdd);
+
+        $data = [
+            "barangMasuk" => $this->barangMasukModel->getBarangMasuk()
+        ];
+
+        return view('template/tabel_barangMasuk', $data);
+    }
+
     public function barangKeluar(){
 
         $data = [

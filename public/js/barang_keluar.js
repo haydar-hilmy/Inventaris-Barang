@@ -78,3 +78,24 @@ $(document).ready(function () {
 
 
 });
+
+
+// konfigurasi id dari tag html dulu, ajax untuk menampilakn form di file barang_keluar.php
+document.getElementById('select_barang').addEventListener('input', function (e) {
+    var id_barang = document.getElementById('select_barang').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            document.getElementById('max_jumlah_barang').innerHTML = response;
+        } else {
+            console.log("Error get data");
+        }
+    }
+    xhr.open('POST', `/barang/getJumlahBarang/${id_barang}`, true);
+    xhr.onerror = function () {
+        console.error(xhr.statusText);
+    };
+    xhr.send();
+});
