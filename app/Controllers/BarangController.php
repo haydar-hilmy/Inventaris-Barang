@@ -118,6 +118,7 @@ class BarangController extends BaseController
             "id_barang" => $this->request->getVar('id_barang'),
             "qty" => $this->request->getVar('jumlah'),
             "pemasok" => $this->request->getVar('pemasok'),
+            "created_at" => $this->request->getVar('tanggal'),
             "modified" => session('login')
         ];
 

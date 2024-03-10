@@ -129,6 +129,3 @@
 <script src="js/barang_masuk.js"></script>
 
 <?= $this->endSection() ?>
-
-<!-- MENAMBAHKAN VALUE YANG DI BAGIAN FILE template/tabel_barang disamakan dengan tabel yang ada di tabel barang_masuk -->
-<!-- PERBAIKI TANGGAL, karena ketika diinput di database tidak muncul tanggal di kolom created at -->
