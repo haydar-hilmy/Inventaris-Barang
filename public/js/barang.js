@@ -146,3 +146,25 @@ document.getElementById("form_add").addEventListener("submit", function(e){
     };
     xhr.send(formData);
 });
+
+document.getElementById('form_cari').addEventListener('input', function(e){
+    var cari = document.getElementById('input_cari').value;
+
+    e.preventDefault();
+    var formData = new FormData(this);
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var response = xhr.responseText;
+            document.getElementById('tbody-barang').innerHTML = response;
+        } else {
+            console.log("Error sending data");
+        }
+    }
+    xhr.open('POST', `barang/${cari}`, true);
+    xhr.onerror = function() {
+        console.error(xhr.statusText);
+    };
+    xhr.send(formData);
+
+});

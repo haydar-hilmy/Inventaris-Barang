@@ -26,6 +26,18 @@ class BarangModel extends Model
         return $this->where('id', $id)->first();
     }
 
+    public function getBarangbyName($getName = false){
+        if($getName === false){
+            return $this->findAll();
+        } else {
+            $builder = $this->db->table('barang');
+            $builder->select('*');
+            $builder->like('nama_barang', $getName, 'both');
+            $query = $builder->get();
+            return $query->getResult();
+        }
+    }
+
     public function getJumlahBarang($id = false){
         if ($id === false) {
             return "id must be included in the parameter";
@@ -38,3 +50,5 @@ class BarangModel extends Model
         }
     }
 }
+// PERBAIKAN SEARCH AJAX: barangModel-masih belum bisa menggunakan LIKE nya ketika mencari nama barang nya tidak ada.
+// JIKA INPUTAN KOSONG, MAKA tabel barang harus terisi semua barang

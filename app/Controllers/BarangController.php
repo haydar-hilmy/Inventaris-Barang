@@ -101,6 +101,14 @@ class BarangController extends BaseController
         return view('template/ajax/inputJumlahBarang', $data);
     }
 
+    public function getSearch($getName){
+        $data = [
+            "barang" => $this->barangModel->getBarangbyName($getName)
+        ];
+
+        return view('template/tabel_barang', $data);
+    }
+
     public function barangMasuk(){
 
 
