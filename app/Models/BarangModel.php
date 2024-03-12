@@ -25,13 +25,14 @@ class BarangModel extends Model
         }
         return $this->where('id', $id)->first();
     }
-
+    
     public function getBarangbyName($getName = false){
-        if($getName === false){
+        if($getName == "" || $getName == null){
             return $this->findAll();
         } else {
             $builder = $this->db->table('barang');
             $builder->select('*');
+            $builder->select('(harga * stok) AS total_harga');
             $builder->like('nama_barang', $getName, 'both');
             $query = $builder->get();
             return $query->getResult();

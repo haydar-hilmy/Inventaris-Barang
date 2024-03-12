@@ -27,6 +27,7 @@ $routes->get('/barang_keluar', 'BarangController::barangKeluar');
 $routes->post('/barang/masuk', 'BarangController::addBarangMasuk');
 
 // pencarian
-$routes->post('/barang/(:any)', 'BarangController::getSearch/$1');
+$routes->post('/caribarang/(:any)', 'BarangController::getSearch/$1');
+$routes->post('/caribarang', 'BarangController::getSearch');
 
 $routes->get('/logout', 'Home::logout');

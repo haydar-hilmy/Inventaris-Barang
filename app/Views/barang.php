@@ -56,7 +56,6 @@
             <div class="right">
                 <form method="get" id="form_cari">
                     <input type="text" id="input_cari" placeholder="search by nama barang" name="cari">
-                    <button type="submit"><img src="assets/icon/search-alt-2-svgrepo-com.svg" alt="icon-search"></button>
                 </form>
             </div>
         </div>

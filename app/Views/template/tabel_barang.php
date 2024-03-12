@@ -1,6 +1,6 @@
 <?php if (!$barang) { ?>
     <tr>
-        <td class="center-td" colspan="10">Belum Ada Data</td>
+        <td class="center-td" colspan="10">Tidak Ada Data</td>
     </tr>
 <?php } else ?>
 <?php $i = 1;

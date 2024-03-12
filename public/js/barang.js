@@ -89,7 +89,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.delete-data').click(function() {
+    $('.delete-data').click(function () {
         var id = $(this).data('id');
         var nama = $(this).data('nama');
         delete_data(id, nama);
@@ -116,7 +116,7 @@ function delete_data(id, nama_barang) {
     });
 }
 
-document.getElementById("form_add").addEventListener("submit", function(e){
+document.getElementById("form_add").addEventListener("submit", function (e) {
 
     let btn_tambah = document.getElementById("btn_tambah");
 
@@ -128,7 +128,7 @@ document.getElementById("form_add").addEventListener("submit", function(e){
     var formData = new FormData(this);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'barang/addbarang', true);
-    xhr.onload = function(){
+    xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
             document.getElementById("box-modal-form").style.display = 'none';
@@ -141,19 +141,20 @@ document.getElementById("form_add").addEventListener("submit", function(e){
             console.log("Error sending data");
         }
     }
-    xhr.onerror = function() {
+    xhr.onerror = function () {
         console.error(xhr.statusText);
     };
     xhr.send(formData);
 });
 
-document.getElementById('form_cari').addEventListener('input', function(e){
+// SEARCH WHILE INPUT
+document.getElementById('form_cari').addEventListener('input', function (e) {
     var cari = document.getElementById('input_cari').value;
 
     e.preventDefault();
     var formData = new FormData(this);
     var xhr = new XMLHttpRequest();
-    xhr.onload = function(){
+    xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = xhr.responseText;
             document.getElementById('tbody-barang').innerHTML = response;
@@ -161,10 +162,9 @@ document.getElementById('form_cari').addEventListener('input', function(e){
             console.log("Error sending data");
         }
     }
-    xhr.open('POST', `barang/${cari}`, true);
-    xhr.onerror = function() {
+    xhr.open('POST', `caribarang/${cari}`, true);
+    xhr.onerror = function () {
         console.error(xhr.statusText);
     };
     xhr.send(formData);
-
 });
