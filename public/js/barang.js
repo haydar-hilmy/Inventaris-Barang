@@ -1,6 +1,20 @@
 document.getElementById('box-modal-form').style.display = 'none';
 document.getElementById('box-modal-alert').style.display = 'none';
 
+
+const app = Vue.createApp({
+    data() {
+        return {
+            message: 'Hello, Vue.js!',
+            inputText: ''
+        };
+    }
+});
+
+// MELANJUTKAN MENGHUBUNGKAN VUE DENGAN TOMBOL EDIT & DELETE
+
+app.mount('#app'); 
+
 $(document).ready(function () {
 
     // navbar
