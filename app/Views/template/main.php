@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="assets/img/goods.png" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title><?= $title ?></title>
 </head>

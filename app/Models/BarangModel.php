@@ -51,5 +51,3 @@ class BarangModel extends Model
         }
     }
 }
-// PERBAIKAN SEARCH AJAX: barangModel-masih belum bisa menggunakan LIKE nya ketika mencari nama barang nya tidak ada.
-// JIKA INPUTAN KOSONG, MAKA tabel barang harus terisi semua barang

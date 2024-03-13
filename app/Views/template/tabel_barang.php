@@ -18,4 +18,5 @@ foreach ($barang as $key => $b) : ?>
         <td><img class="act-btn edit-btn" data-id="<?= $b->id ?>" src="assets/icon/edit-3-svgrepo-com.svg"> | <img data-id="<?= $b->id ?>" data-nama="<?= $b->nama_barang ?>" class="act-btn delete-data" src="assets/icon/delete-2-svgrepo-com.svg"></td>
     </tr>
 <?php endforeach ?>
-<script src="js/barang.js"></script>
+
+<!-- MENAMBAHKAN VUE PADA BAGIAN EDIT DAN DELETE -->
